@@ -24,7 +24,7 @@ public class GuessGame {
 
         int targetNumber = (int) (Math.random() * 10);
 
-        System.out.println("Я загадал число от 0 до 9: " + targetNumber);
+        System.out.println("Я загадал число от 0 до 9: " + targetNumber + "\n Попробуйте отгадать его");
 
         while (true) {
             try {
@@ -32,12 +32,14 @@ public class GuessGame {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
+            System.out.println("Игрок 1 загадай число:");
             p1guess = p1.guess(scanner);
-            System.out.println("Игрок 1 предложил число " + p1guess);
+            System.out.println("Игрок 1 предложил число: " + p1guess);
+            System.out.println("Игрок 2 загадай число");
             p2guess = p2.guess(scanner);
             System.out.println("Игрок 2 предложил число " + p2guess);
             p3guess = p3.guess(scanner);
+            System.out.println("Игрок 3 загадай число:");
             System.out.println("Игрок 3 предложил число " + p3guess);
 
             if (p1guess == targetNumber) p1isRight = true;
