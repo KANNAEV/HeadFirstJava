@@ -1,2 +1,2 @@
 # HeadFirstJava
-Task from book Head First Java
+Tasks from book Head First Java
