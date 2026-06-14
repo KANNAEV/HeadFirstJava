@@ -42,11 +42,14 @@ public class GuessGame {
             System.out.println("Игрок 3 загадай число:");
             System.out.println("Игрок 3 предложил число " + p3guess);
 
-            if (p1guess == targetNumber) p1isRight = true;
+            if (p1guess == targetNumber)
+                p1isRight = true;
 
-            if (p2guess == targetNumber) p2isRight = true;
+            if (p2guess == targetNumber)
+                p2isRight = true;
 
-            if (p3guess == targetNumber) p3isRight = true;
+            if (p3guess == targetNumber)
+                p3isRight = true;
 
             if (p1isRight || p2isRight || p3isRight) {
                 System.out.println("У нас победитель !");

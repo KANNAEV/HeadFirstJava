@@ -7,6 +7,7 @@ public class Dog {
         this.name = name;
     }
 
+    // Лай бывает разный
     void bark(int size) {
         if (size > 60) {
             System.out.println("Гав-гав");
