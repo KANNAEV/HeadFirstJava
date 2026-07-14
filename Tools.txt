@@ -1,0 +1,45 @@
+Tools for learning
+
+IDE: 
+vscode
+
+Pligins for IDE
+Seudev's VSCode Java snippets
+
+📦 Основные шаблоны
+psvm, main		Публичный статический метод main
+c, class		Шаблон класса
+i, interface		Шаблон интерфейса
+e, enum			Шаблон перечисления (enum)
+a, annotation		Шаблон аннотации
+
+🔁 Условия и циклы
+Триггеры	
+if			Блок if
+else			Блок else
+switch, sw		Блок switch
+fori			Цикл for по массиву
+foreach, iter		Цикл for-each по коллекции
+while, wh		Цикл while
+dowhile, dwh		Цикл do-while
+
+🛠️ Методы и поля
+Триггеры	
+m, method		Шаблон метода
+public_method		Публичный метод
+private_method		Приватный метод
+static_method		Статический метод
+f, field		Поле класса
+pf, pfield		Приватное поле
+
+⚠️ Исключения и отладка
+Триггеры	
+try_catch, tc		Блок try-catch
+try_resources, twr	Блок try-with-resources
+sout, sysout		System.out.println()
+syserr, serr		System.err.println()
+
+🧵 Лямбды
+Триггеры	
+l1s			Простая лямбда с 1 аргументом
+l2			Блочная лямбда с 2 аргументами

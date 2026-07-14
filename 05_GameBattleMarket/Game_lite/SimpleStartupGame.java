@@ -1,4 +1,5 @@
-
+import Game_full.GameHelper;
+import Game_full.SimpleStartup;
 
 public class SimpleStartupGame {
 
