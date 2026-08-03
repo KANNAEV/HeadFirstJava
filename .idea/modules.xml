@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/01_Entering_to_Java/01_Entering_to_Java.iml" filepath="$PROJECT_DIR$/01_Entering_to_Java/01_Entering_to_Java.iml" />
-      <module fileurl="file://$PROJECT_DIR$/02_ClassAndObject/02_ClassAndObject.iml" filepath="$PROJECT_DIR$/02_ClassAndObject/02_ClassAndObject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/08_Interfaces&amp;Abstract/08_Interfaces&amp;Abstract.iml" filepath="$PROJECT_DIR$/08_Interfaces&amp;Abstract/08_Interfaces&amp;Abstract.iml" />
-      <module fileurl="file://$PROJECT_DIR$/11_DataStructures/11_DataStructures.iml" filepath="$PROJECT_DIR$/11_DataStructures/11_DataStructures.iml" />
-      <module fileurl="file://$PROJECT_DIR$/HeadFirstJava.iml" filepath="$PROJECT_DIR$/HeadFirstJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HeadFirstJava.iml" filepath="$PROJECT_DIR$/.idea/HeadFirstJava.iml" />
     </modules>
   </component>
 </project>

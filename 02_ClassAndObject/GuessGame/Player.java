@@ -1,3 +1,5 @@
+package GuessGame;
+
 class Player {
     int number; // Число, которое игрок загадывает
 
