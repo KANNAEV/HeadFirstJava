@@ -1,3 +1,5 @@
+package List;
+
 import java.util.*;
 
 public class Main {
@@ -15,7 +17,7 @@ public class Main {
 
 
         // Внешний компаратор
-        List<SongV2> songs_3 = MockSongs2.getSongsList(); // тот же класс SongV2
+        List<SongV2> songs_3 = MockSongs2.getSongsList(); // тот же класс List.SongV2
         Comparator<SongV2> byTitle = Comparator.comparing(SongV2::getTitle); // Компоратор 1
         Comparator<SongV2> byArtist = Comparator.comparing(SongV2::getArtist); // Компоратор 2
         Comparator<SongV2> byBitRate = Comparator.comparing(SongV2::getBpm); // Компоратор 3
@@ -27,7 +29,7 @@ public class Main {
         songs_3.sort(byBitRate);
         System.out.println(songs_3);
         
-        //Класс внешнего компоратора TitleCompare
+        //Класс внешнего компоратора List.TitleCompare
         TitleCompare titleCompare = new TitleCompare();
         songs_3.sort(titleCompare);
         System.out.println(songs_3);

@@ -1,3 +1,5 @@
+package List;
+
 public class SongV2 implements Comparable<SongV2> {
 	private String title;
 	private String artist;

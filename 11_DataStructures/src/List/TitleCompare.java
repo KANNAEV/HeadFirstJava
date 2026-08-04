@@ -1,3 +1,5 @@
+package List;
+
 import java.util.Comparator;
 
 class TitleCompare implements Comparator<SongV2> {
