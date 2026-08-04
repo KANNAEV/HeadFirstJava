@@ -1,6 +1,4 @@
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,6 +34,8 @@ public class Main {
 
         //Через lambda
         songs_3.sort((s1, s2) -> s1.getTitle().compareTo(s2.getTitle()));
+
+
 
     }
 }
