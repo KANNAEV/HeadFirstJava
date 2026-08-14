@@ -1,60 +1,58 @@
+# 11. Структуры данных
+
+- `Java Collections Framework` - это часть API Java для работы с коллекциями
+- Включает:
+    - Интерфейсы:(`List`, `Set`, `Map`, `Queue`)
+    - Их реализации:(`ArrayList`, `HashSet`, `HashMap`, `TreeMap`)
+    - Вспомогательные утилитные классы (`Collections`, `Arrays`)
+- В основном размещены в пакете `java.util`
+
+## Простой список List cо строками
+
+- [Простой список](src/List/ex01ListOfString)
+- На практике часто классы - заглушки именуются как Mock
+- В данном примере MockSongs - это будущий поставщик данных в виде ArrayList
+- `List` и его реализации хранят элементы в порядке их добавления
+
+- Для сортировки List нужен Comparator `sort(Comparator)`
+- `Comparator` - это пользовательская реализация сортировки
+
+- Для сортировки по алфавиту можно воспользоваться утилитарным методом sort для списков из пакета Colletions.
+  `Collections.sort(list);`
+
+### List с объектами
+
+- Collections.sort(list) - не применится для списка с объектами
+- Нужно как-то сообщить методу sort какое поле объекта использовать
+
+#### Обобщенные типы
+
+- Это большая безопасность типов
+- Применяются чаще для создания типобезопасных коллекций
+- Например, запрещает добавить Cat в список Dog
+- Рассмотрим обобщенный класс ArrayList
+
 ```java
-// 1. Collection - САМЫЙ БАЗОВЫЙ
-Collection<Car> cars = new ArrayList<>();
-// Можно:
-// - add(), remove(), size(), isEmpty(), contains()
-// - forEach(), stream(), iterator()
+// Обобщенный класс. Использование параметра типа, определенного в объявлении класса
+// Заполнитель типа <E> подставит везде соответствующий тип
+public class ArrayList<E> extends AbstractList<E>
+        implements List<E>, RandomAccess, Cloneable, java.io.Serializable {
+    //...
+}
 
-// 2. List - ДОБАВЛЯЕТ работу с индексами
-List<Car> cars = new ArrayList<>();
-// Можно ВСЁ из Collection ПЛЮС:
-// - get(index), set(index, element)
-// - indexOf(), lastIndexOf()
-// - subList(), sort()
-// - listIterator()
+// Обобщенный метод. Использование параметра типа, который не был определен в объявлении класса
+// В обобщенный метод можно передавать подклассы Animal: Dog, Cat и др.
+public <T extends Animal> void takeThing(ArrayList<T> list) {
+    //...
+}
 
-// 3. ArrayList - ДОБАВЛЯЕТ специфические методы
-ArrayList<Car> cars = new ArrayList<>();
-// Можно ВСЁ из List ПЛЮС:
-// - trimToSize()
-// - ensureCapacity()
-// - clone()
+// Обычный метод. Тут можно передавать только Animal (полиморфизм не сработает)
+public void takeThing(ArrayList<T> list) {
+    //...
+}
 ```
 
-- `List` - когда важен порядок. Элементы по индексу.
-- `Set` - когда важна уникальность.
-- `Map` - когда важно нахождение значения по ключу. Ключи не повторяются
-
-- Интерфейс Map не расширяет интерфейс Collections
-- При этом Map все равно считается частью Collection Framework (API коллекций)
-
-
-- **Extends** — расширяет, наследование от родителя
-- **Implements** — реализует интерфейс
-
-```PlantUml
-
-Interface Collections
-Interface Set extends Collections
-Interface List extends Collections
-Interface SortedSet extends Set
-Class TreSet implements SortedSet
-Class LinkedHashSet implements Set
-Class HashSet implements Set
-Class ArayList implements List
-Class LinkedList implements List
-Class Vector implements List
-
-Interface Map
-Interface SorttedMap extends Map
-Class TreeMap implements SorttedMap
-Class HashMap implements Map
-Class LinkedHashMap implements Map
-Class Hashtable implements Map
-
-
-
-```
+- `<T>` - type, `<E>` - element, `<R>` - return_type
 
 ----
 
@@ -88,12 +86,12 @@ Class Hashtable implements Map
 ```java
 // До 10 записей
 Map<String, Integer> scores = Map.of("First", 1,
-                                     "Second, 2);
+                "Second, 2);
 // Более 10 записей
-Map<String, String> cars = Map.ofEntries(Map.entry("Toyoya","Camry")
-                                         Map.entry("Toyota","Corolla")
-                                         Map.entry("Toyota","4Runner"));  
-                            
+                Map < String, String > cars = Map.ofEntries(Map.entry("Toyota", "Camry"),
+                        Map.entry("Toyota", "Corolla"),
+                        Map.entry("Toyota", "4Runner"));
+
 ```
 
 ### Полиморфизм в методах
@@ -102,9 +100,9 @@ Map<String, String> cars = Map.ofEntries(Map.entry("Toyoya","Camry")
 - Нужны подстановочные символы
 
 ```java
-public void takeAnimals (List<? extends Animal> animals ) {
-    for(Animal a: animals) {
-    a.eat();
+public void takeAnimals(List<? extends Animal> animals) {
+    for (Animal a : animals) {
+        a.eat();
     }
 }
 ```
@@ -116,5 +114,28 @@ public void takeAnimals (List<? extends Animal> animals ) {
 - Проще говоря, это шаблон, где вы указываете: "Я буду работать с каким-то типом Т, а какой это тип — вы решите, когда
   будете создавать объект".
 - До появления дженериков (Java 1.4 и ранее)
-  Все коллекции хранили объеgты типа Object:
+  Все коллекции хранили объекты типа Object:
+
+### P.S.
+
+- **Extends** — расширяет, наследование от родителя
+- **Implements** — реализует интерфейс
+- Ромбовидный оператор понимает что тип данных такой же как и в ромбике слева
+
+---
+
+- `List` - когда важен порядок. Элементы по индексу.
+- `Set` - когда важна уникальность.
+- `Map` - когда важно нахождение значения по ключу. Ключи не повторяются
+
+---
+
+- Интерфейс Map не расширяет интерфейс Collections
+- При этом Map все равно считается частью Collection Framework (API коллекций)
+
+---
+
+```java
+List<String> myList = new ArrayList<>(); 
+```
 

@@ -1,0 +1,182 @@
+@startuml
+@startuml
+' Настройка стиля
+skinparam classAttributeIconSize 0
+skinparam backgroundColor #FEFEFE
+skinparam class {
+    BackgroundColor White
+    BorderColor Black
+    ArrowColor #0066CC
+}
+
+' ========== ИЕРАРХИЯ COLLECTION ==========
+
+interface Collection<T> {
+    + add(T e): boolean
+    + addAll(Collection<? extends T> c): boolean
+    + remove(Object o): boolean
+    + removeAll(Collection<?> c): boolean
+    + retainAll(Collection<?> c): boolean
+    + clear(): void
+    + contains(Object o): boolean
+    + containsAll(Collection<?> c): boolean
+    + isEmpty(): boolean
+    + size(): int
+    + iterator(): Iterator<T>
+    + toArray(): Object[]
+    + toArray(U[] a): U[]
+    + equals(Object o): boolean
+    + hashCode(): int
+}
+
+interface List<T> {
+    + get(int index): T
+    + set(int index, T element): T
+    + add(int index, T element): void
+    + addAll(int index, Collection<? extends T> c): boolean
+    + remove(int index): T
+    + indexOf(Object o): int
+    + lastIndexOf(Object o): int
+    + listIterator(): ListIterator<T>
+    + listIterator(int index): ListIterator<T>
+    + subList(int fromIndex, int toIndex): List<T>
+}
+
+interface Set<T> {
+    (Нет новых методов - только ограничение на уникальность)
+}
+
+interface SortedSet<T> {
+    + comparator(): Comparator<? super T>
+    + first(): T
+    + last(): T
+    + headSet(T toElement): SortedSet<T>
+    + tailSet(T fromElement): SortedSet<T>
+    + subSet(T fromElement, T toElement): SortedSet<T>
+}
+
+' Классы Set
+class TreeSet<T> {
+    - comparator: Comparator<? super T>
+    (реализует все методы SortedSet)
+}
+
+class HashSet<T> {
+    - loadFactor: float
+    - initialCapacity: int
+    (реализует все методы Set)
+}
+
+class LinkedHashSet<T> {
+    (наследует HashSet, добавляет порядок итерации)
+}
+
+' Классы List
+class ArrayList<T> {
+    - size: int
+    + trimToSize(): void
+    + ensureCapacity(int minCapacity): void
+}
+
+class Vector<T> {
+    - capacityIncrement: int
+    + addElement(T obj): void
+    + elementAt(int index): T
+    + removeElement(Object obj): boolean
+    + removeElementAt(int index): void
+    + insertElementAt(T obj, int index): void
+    + setElementAt(T obj, int index): void
+    + capacity(): int
+}
+
+class LinkedList<T> {
+    - size: int
+    + addFirst(T e): void
+    + addLast(T e): void
+    + getFirst(): T
+    + getLast(): T
+    + removeFirst(): T
+    + removeLast(): T
+    + offerFirst(T e): boolean
+    + offerLast(T e): boolean
+    + pollFirst(): T
+    + pollLast(): T
+    + peekFirst(): T
+    + peekLast(): T
+    + push(T e): void
+    + pop(): T
+}
+
+' Наследование
+Collection <|-- List
+Collection <|-- Set
+Set <|-- SortedSet
+
+SortedSet <|.. TreeSet
+Set <|.. HashSet
+HashSet <|-- LinkedHashSet
+
+List <|.. ArrayList
+List <|.. Vector
+List <|.. LinkedList
+
+' ========== ИЕРАРХИЯ MAP ==========
+
+interface Map<K, V> {
+    + put(K key, V value): V
+    + putAll(Map<? extends K, ? extends V> m): void
+    + get(Object key): V
+    + getOrDefault(Object key, V defaultValue): V
+    + remove(Object key): V
+    + remove(Object key, Object value): boolean
+    + containsKey(Object key): boolean
+    + containsValue(Object value): boolean
+    + isEmpty(): boolean
+    + size(): int
+    + clear(): void
+    + keySet(): Set<K>
+    + values(): Collection<V>
+    + entrySet(): Set<Map.Entry<K, V>>
+    + equals(Object o): boolean
+    + hashCode(): int
+}
+
+interface SortedMap<K, V> {
+    + comparator(): Comparator<? super K>
+    + firstKey(): K
+    + lastKey(): K
+    + headMap(K toKey): SortedMap<K, V>
+    + tailMap(K fromKey): SortedMap<K, V>
+    + subMap(K fromKey, K toKey): SortedMap<K, V>
+}
+
+class TreeMap<K, V> {
+    - comparator: Comparator<? super K>
+    (реализует все методы SortedMap)
+}
+
+class HashMap<K, V> {
+    - loadFactor: float
+    - initialCapacity: int
+    + (реализует все методы Map)
+}
+
+class LinkedHashMap<K, V> {
+    (наследует HashMap, добавляет порядок итерации)
+}
+
+class Hashtable<K, V> {
+    - loadFactor: float
+    - initialCapacity: int
+    + (синхронизированный, реализует все методы Map)
+}
+
+' Наследование Map
+Map <|-- SortedMap
+SortedMap <|.. TreeMap
+Map <|.. HashMap
+HashMap <|-- LinkedHashMap
+Map <|.. Hashtable
+
+@enduml
+@enduml
