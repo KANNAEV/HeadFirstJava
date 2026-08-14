@@ -1,9 +1,9 @@
 package List.ex02ListOfObjects;
 
-public class Song {
-    private String title;
-    private String artist;
-    private int bpm;
+public class Song implements Comparable<Song> {
+    private final String title;
+    private final String artist;
+    private final int bpm;
 
 
     public Song(String title, String artist, int bpm) {
@@ -26,6 +26,11 @@ public class Song {
 
     @Override
     public String toString() {
-        return title;
+        return title + " " + artist + " " + bpm;
+    }
+
+    @Override
+    public int compareTo(Song s) {
+        return title.compareTo(s.getTitle());
     }
 }
