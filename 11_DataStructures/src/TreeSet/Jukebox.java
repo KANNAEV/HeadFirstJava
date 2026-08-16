@@ -5,20 +5,22 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Jukebox {
-	public static void main(String[] args) {
-		List<Song> songList = MockSongs.getSongsList();
-		Set<Song> songSet = new TreeSet<Song>(songList);
+    public static void main(String[] args) {
 
-		System.out.println(songSet); // Отсортированы по методу compareTo();
+        // Список наших песен
+        List<Song> songList = MockSongs.getSongsList();
 
-		Set<Song> songSetByTitle = new TreeSet<>((s1, s2) -> s1.getArtist().compareTo(s2.getArtist()));
-		songSetByTitle.addAll(songList);
-		System.out.println(songSetByTitle); // Отсортированы по методу Comparator из Lambda();
+        // Создаем TreeSet с передачей метода сортировки через lambda
+        Set<Song> songSet = new TreeSet<>((song1, song2) -> song1.getBpm() - song2.getBpm());
+
+        // Добавляем в TreeSet наш список песен
+        songSet.addAll(songList);
+
+        // Отсортированы по битрейту
+        System.out.println(songSet);
 
 
-	}
-
-
+    }
 
 
 }

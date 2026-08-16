@@ -1,4 +1,4 @@
-package TreeSet;
+package HashSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class MockSongs {
         songs.add(new Song("$10", "hitchhiker", 140));
         songs.add(new Song("$10", "hitchhiker", 140));
         songs.add(new Song("сassidy", "grateful dead", 158));
-
+        
         return songs;
 
     }
