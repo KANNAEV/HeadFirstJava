@@ -1,4 +1,4 @@
-// Класс Song с переопределенными методами equals и hashCode()
+// Класс JukeboxStream.Song с переопределенными методами equals и hashCode()
 package HashSet;
 
 public class Song implements Comparable<Song> {

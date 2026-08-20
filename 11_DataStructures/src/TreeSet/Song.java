@@ -1,4 +1,4 @@
-// Класс Song с переопределенными методами equals и hashCode()
+// Класс JukeboxStream.Song с переопределенными методами equals и hashCode()
 package TreeSet;
 
 public class Song implements Comparable<Song> {
@@ -14,7 +14,7 @@ public class Song implements Comparable<Song> {
 
 //    @Override
 //    public boolean equals(Object aSong) {
-//        Song other = (Song) aSong;
+//        JukeboxStream.Song other = (JukeboxStream.Song) aSong;
 //        // title - это String а у String уже есть переопределенный метод equals()
 //        return title.equals(other.getTitle());
 //    }

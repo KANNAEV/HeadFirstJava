@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Jukebox {
     public static void main(String[] args) {
-        //Song с реализацией compareTo() интерфейса Comparable
+        //JukeboxStream.Song с реализацией compareTo() интерфейса Comparable
         List<Song> songs = MockSongs.getSongsList();
         System.out.println("До сортировки: " + songs);
         Collections.sort(songs);

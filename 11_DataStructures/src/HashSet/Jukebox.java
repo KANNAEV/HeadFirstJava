@@ -12,7 +12,7 @@ public class Jukebox {
         System.out.println(songList);
         System.out.println();
 
-        // Загрузим в HashSet - дубликаты исключены методами hashCode() и equqls() класса Song
+        // Загрузим в HashSet - дубликаты исключены методами hashCode() и equqls() класса JukeboxStream.Song
         Set<Song> songSet = new HashSet<>(songList);
         System.out.println(songSet);
         System.out.println();
